@@ -15,7 +15,7 @@ eventSchema.methods.getChildren = function() {
     .exec()
 }
 
-eventSchema.mehtods.addChild = function(child) {
+eventSchema.methods.addChild = function(child) {
   return mongoose
     .model('Event')
     .create(_.merge(child, {

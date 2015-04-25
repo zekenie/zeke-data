@@ -14,8 +14,9 @@ router.param('id', function(req, res, next, id) {
         return next(err)
       }
       req.eventType = eventType
+      next()
     })
-    .then(function(null, err) {
+    .then(null, function(err) {
       next(err)
     })
 })
@@ -100,7 +101,7 @@ router.get('/:id/children', function(req, res, next) {
     })
 })
 
-router.get('/:id/events', function(req, res, next) {
+router.get('/:id/event', function(req, res, next) {
   req.eventType
     .getEvents()
     .then(function(events) {

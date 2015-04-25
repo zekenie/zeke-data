@@ -14,8 +14,9 @@ router.param('id', function(req, res, next, id) {
         return next(err)
       }
       req.event = event
+      next()
     })
-    .then(function(null, err) {
+    .then(null, function(err) {
       next(err)
     })
 })
