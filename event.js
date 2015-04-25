@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-
+var _ = require('lodash')
 var eventSchema = new mongoose.Schema({
   type: { type: mongoose.Schema.Types.ObjectId, ref: 'EventType' },
   parent: { type: mongoose.Schema.Types.ObjectId, ref: 'Event'},
@@ -13,6 +13,14 @@ eventSchema.methods.getChildren = function() {
     .model('Event')
     .find({ parent: this._id })
     .exec()
+}
+
+eventSchema.mehtods.addChild = function(child) {
+  return mongoose
+    .model('Event')
+    .create(_.merge(child, {
+      parent: this._id
+    }))
 }
 
 eventSchema.path('start').validate(function(value) {
