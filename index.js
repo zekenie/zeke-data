@@ -19,7 +19,7 @@ app.use('/vendor',express.static('bower_components'))
 
 app.use(require('./routes'))
 
-app.use(function(err, req, res) {
+app.use(function(req, res, next, err) {
   res.status(err.status || 500).send(err)
 })
 

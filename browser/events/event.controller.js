@@ -3,7 +3,7 @@ angular.module('zekeData')
     $stateProvider
       .state('events', {
         url: '/events',
-        templateUrl: 'events/index.html',
+        templateUrl: 'events/event.index.html',
         controller: 'EventCtrl'
       })
   })
