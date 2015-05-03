@@ -2,11 +2,7 @@ var express = require('express')
 var logger = require('morgan')
 var bodyParser = require('body-parser')
 
-var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/zekedata')
-require('./event')
-require('./eventType')
-
+require('./models')
 
 var app = module.exports = express()
 
